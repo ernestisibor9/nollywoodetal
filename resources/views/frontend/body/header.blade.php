@@ -40,7 +40,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact.html">
+              <a class="nav-link" href="{{route('contact.us')}}">
                 Contact
               </a>
             </li>
@@ -77,7 +77,7 @@
               </a>
             </li>
             <li>
-              <a class="nav-link" href="contact.html">
+              <a class="nav-link" href="{{route('contact.us')}}">
                 Contact
               </a>
             </li>
@@ -96,45 +96,57 @@
           <div class="contents">
             <h1 class="head-title">NOLLYWOOD ET AL</h1>
             <p>Film Mart * Company * News Blog</p>
+            <p>Search For Movie</p>
             <div class="search-bar">
               <div class="search-inner">
-                <form class="search-form">
+
+                @php
+                    $movies = App\Models\Movie::latest()->get();
+                    $genres = App\Models\Genre::latest()->get();
+                    $producers = App\Models\Producer::latest()->get();
+                @endphp
+
+                <form class="search-form" method="post" action="{{route('search.movie')}}">
+                  @csrf
                   <div class="form-group inputwithicon">
-                    <i class="lni-tag"></i>
-                    <input type="text" name="customword" class="form-control" placeholder="Enter Product Keyword">
+                    <i class="lni-map-marker"></i>
+                    <div class="select">
+                      <select name= 'country'>
+                        <option value="">Select Country</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="USA">USA</option>
+                        <option value="China">China</option>
+                        <option value="Korea">Korea</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="South Africa">South Africa</option>
+                        <option value="England">England</option>
+                        <option value="France">France</option>
+                      </select>
+                    </div>
                   </div>
                   <div class="form-group inputwithicon">
                     <i class="lni-map-marker"></i>
                     <div class="select">
-                      <select>
-                        <option value="none">Locations</option>
-                        <option value="none">New York</option>
-                        <option value="none">California</option>
-                        <option value="none">Washington</option>
-                        <option value="none">Birmingham</option>
-                        <option value="none">Chicago</option>
-                        <option value="none">Phoenix</option>
+                      <select name= 'genre'>
+                        <option value="none">Select Genre</option>
+                          @foreach ($genres as $item)
+                              <option value = {{$item->genre}}>{{$item->genre}}</option>
+                          @endforeach
                       </select>
                     </div>
                   </div>
                   <div class="form-group inputwithicon">
                     <i class="lni-menu"></i>
                     <div class="select">
-                      <select>
-                        <option value="none">Categories</option>
-                        <option value="none">Jobs</option>
-                        <option value="none">Electronics</option>
-                        <option value="none">Mobile</option>
-                        <option value="none">Training</option>
-                        <option value="none">Pets</option>
-                        <option value="none">Real Estate</option>
-                        <option value="none">Services</option>
-                        <option value="none">Training</option>
-                        <option value="none">Vehicles</option>
+                      <select name = 'producer_name'>
+                        <option value="none">Select Producer</option>
+                          @foreach ($producers as $item)
+                              <option value = {{$item->producer_name}}>{{$item->producer_name}}</option>
+                          @endforeach
                       </select>
                     </div>
                   </div>
-                  <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
+                  <button class="btn btn-common" type="submit"><i class="lni-search"></i> Search Now</button>
                 </form>
               </div>
             </div>

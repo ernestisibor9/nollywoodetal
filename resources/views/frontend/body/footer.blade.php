@@ -84,7 +84,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="site-info float-left">
-            <p>All copyrights reserved &copy; 2018 - Designed by <a href="https://uideck.com" rel="nofollow">UIdeck</a></p>
+            <p>All copyrights reserved &copy; <?php echo date("Y"); ?> - Designed by <a href="https://uideck.com" rel="nofollow">UIdeck</a></p>
           </div>              
           <div class="float-right">  
             <ul class="bottom-card">

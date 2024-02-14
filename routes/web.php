@@ -9,6 +9,8 @@ use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\ProducerController;
 use App\Http\Controllers\Backend\WritterController;
 use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -39,11 +41,14 @@ Route::post('/store/comment', [BlogController::class,'StoreComment'])->name('sto
 // Reply comment
 Route::post('/add_reply', [BlogController::class,'AddReply']);
 
-// Search Post
-// Route::post('/search/post', [BlogController::class, 'SearchPost'])->name('search.post');
+// Search Movie
+Route::post('/search/movie', [SearchController::class, 'SearchMovie'])->name('search.movie');
 
 // All Blog
 Route::get('/all/blog', [BlogController::class, 'AllBlog'])->name('all.blog');
+
+// Contact Route
+Route::get('/contact/us', [ContactController::class, 'Contact'])->name('contact.us');
 
 
 Route::get('/dashboard', function () {
