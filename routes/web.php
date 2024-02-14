@@ -42,6 +42,9 @@ Route::post('/add_reply', [BlogController::class,'AddReply']);
 // Search Post
 // Route::post('/search/post', [BlogController::class, 'SearchPost'])->name('search.post');
 
+// All Blog
+Route::get('/all/blog', [BlogController::class, 'AllBlog'])->name('all.blog');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

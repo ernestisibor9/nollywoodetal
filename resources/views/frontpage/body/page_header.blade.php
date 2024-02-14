@@ -5,7 +5,7 @@
           <div class="breadcrumb-wrapper">
             <h2 class="product-title">Blog Details</h2>
             <ol class="breadcrumb">
-              <li><a href="#">Home /</a></li>
+              <li><a href="{{url('/')}}">Home /</a></li>
               <li class="current">Blog Details</li>
             </ol>
           </div>

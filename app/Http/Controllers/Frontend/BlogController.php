@@ -51,6 +51,14 @@ class BlogController extends Controller
     );
         return redirect()->back()->with($notification);
     }
+    // AllBlog
+    public function AllBlog(){
+        $allBlog = Post::latest()->paginate(3);
+        return view('frontpage.blog.all_blog', compact('allBlog'));
+    }
+
+
+
     // Search 
     // public function SearchPost(Request $request){
     //     $post = $request->post;
