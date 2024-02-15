@@ -19,12 +19,10 @@ class GenreController extends Controller
     // Store Genre
     public function StoreGenre(Request $request){
         $request->validate([
-            'genre' => 'required',
-            'movie_id' => 'required',
+            'genre' => 'required|unique:genres|max:255',
         ]);
         Genre::insert([
             'genre' => $request->genre,
-            'movie_id' => $request->movie_id,
             'created_at' => Carbon::now(),
         ]);
 
@@ -51,7 +49,6 @@ class GenreController extends Controller
 
         Genre::findOrFail($pid)->update([
             'genre' => $request->genre,
-            'movie_id' => $request->movie_id,
             'updated_at' => Carbon::now(),
         ]);
         $notification = array(

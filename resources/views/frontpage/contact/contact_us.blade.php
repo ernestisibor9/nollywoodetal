@@ -6,9 +6,9 @@
     <!-- Map Section Start -->
     <section id="google-map-area">
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-12">
-            <div id="conatiner-map"></div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.117327740868!2d3.3568960999999993!3d6.632347499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b93ea8c91e493%3A0x83c08a7ee8f4cd21!2s4%20Jide%20Ayo%20Cl%2C%20Isheri%2C%20Ikeja%20101233%2C%20Lagos!5e0!3m2!1sen!2sng!4v1707991739750!5m2!1sen!2sng" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
@@ -72,15 +72,15 @@
               Get In Touch
             </h2>
             <div class="information">
-              <p>Lorem Ipsum Is simply dummy text of the printing and typesetting Industry. 
-              Lorem Ipsum has been the Industry's</p>
+              <p>Do you have a question or comment?</p>
+              <p>Send a message using the form below and we'll be in touch with you within 48 hours</p>
               <div class="contact-datails">
                 <div class="icon">
                   <i class="lni-map-marker icon-radius"></i>
                 </div>
                 <div class="info">
                   <h3>Address</h3>
-                  <span class="detail">Level 13, 2 Ellzabeth St, <br> Lorem Ipsum Is simply dummy text</span>
+                  <span class="detail">No 4 Jide Ayo Close Off Omofade Crescent <br> Omole Phase 1, </span> <br> <span>Ojodu-Ikeja, Lagos</span>
                 </div>
               </div>      
               <div class="contact-datails">
@@ -89,7 +89,8 @@
                 </div>
                 <div class="info">
                   <h3>Have any Questions?</h3>
-                  <span class="detail">Support@mail.com</span>
+                  <span class="detail">osezua.odumacreative@gmail.com</span> <br>
+                  <span class="detail">info@nollywood.com</span>
                 </div>
               </div>          
               <div class="contact-datails">
@@ -98,7 +99,7 @@
                 </div>
                 <div class="info">
                   <h3>Call Us & Hire us</h3>
-                  <span class="detail">Main Office: +880 123 456 789</span>
+                  <span class="detail">Main Office: +234 802 314 1942</span>
                 </div>
               </div>
               <div class="contact-datails">

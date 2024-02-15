@@ -16,7 +16,6 @@
                     <tr>
                         <th>S/N</th>
                         <th>Genre</th>
-                        <th>Movie</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -25,7 +24,6 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->genre }}</td>
-                            <td>{{ $item->movie->movie_title }}</td>
                             <td>
                                 <a href="{{ route('edit.genre', $item->id) }}" title="Edit" class="btn btn-primary">Edit</a>
                                 <button href="{{ route('delete.genre', $item->id) }}" title="Delete" class="btn btn-danger" id="delete">Delete</button>

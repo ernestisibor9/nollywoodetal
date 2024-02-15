@@ -102,8 +102,8 @@
 
                 @php
                     $movies = App\Models\Movie::latest()->get();
-                    $genres = App\Models\Genre::latest()->get();
-                    $producers = App\Models\Producer::latest()->get();
+                    $genre = App\Models\Genre::latest()->get();
+                    $producer = App\Models\Producer::latest()->get();
                 @endphp
 
                 <form class="search-form" method="post" action="{{route('search.movie')}}">
@@ -127,9 +127,9 @@
                   <div class="form-group inputwithicon">
                     <i class="lni-map-marker"></i>
                     <div class="select">
-                      <select name= 'genre'>
+                      <select name= 'genre_id'>
                         <option value="none">Select Genre</option>
-                          @foreach ($genres as $item)
+                          @foreach ($genre as $item)
                               <option value = {{$item->genre}}>{{$item->genre}}</option>
                           @endforeach
                       </select>
@@ -138,9 +138,9 @@
                   <div class="form-group inputwithicon">
                     <i class="lni-menu"></i>
                     <div class="select">
-                      <select name = 'producer_name'>
+                      <select name = 'producer_id'>
                         <option value="none">Select Producer</option>
-                          @foreach ($producers as $item)
+                          @foreach ($producer as $item)
                               <option value = {{$item->producer_name}}>{{$item->producer_name}}</option>
                           @endforeach
                       </select>

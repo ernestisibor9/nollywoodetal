@@ -18,12 +18,10 @@ class ProducerController extends Controller
     // StoreProducer
     public function StoreProducer(Request $request){
         $request->validate([
-            'producer_name' => 'required',
-            'movie_id' => 'required',
+            'producer_name' => 'required|unique:producers|max:255',
         ]);
         Producer::insert([
             'producer_name' => $request->producer_name,
-            'movie_id' => $request->movie_id,
             'created_at' => Carbon::now(),
         ]);
 
@@ -50,7 +48,6 @@ class ProducerController extends Controller
 
         Producer::findOrFail($pid)->update([
             'producer_name' => $request->producer_name,
-            'movie_id' => $request->movie_id,
             'updated_at' => Carbon::now(),
         ]);
         $notification = array(

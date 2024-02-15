@@ -1,7 +1,7 @@
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+            {{-- <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon"> --}}
         </div>
         <div>
             <h4 class="logo-text">NollywoodEtal</h4>
@@ -79,7 +79,7 @@
             <ul>
                 <li> <a href="{{route('add.genre')}}"><i class='bx bx-radio-circle'></i>Add Genre</a>
                 </li>
-                <li> <a href="{{route('all.writer')}}"><i class='bx bx-radio-circle'></i>All Genre</a>
+                <li> <a href="{{route('all.genre')}}"><i class='bx bx-radio-circle'></i>All Genre</a>
                 </li>
             </ul>
         </li>

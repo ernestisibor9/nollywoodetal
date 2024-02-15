@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Genre;
 use App\Models\Movie;
+use App\Models\Producer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -20,7 +22,8 @@ class MovieController extends Controller
     public function StoreMovie(Request $request){
         $request->validate([
             'movie_title' => 'required|unique:movies|max:200',
-            'company_id' => 'required',
+            'genre_id' => 'required',
+            'producer_id' => 'required',
             'country' => 'required',
             'movie_duration' => 'required',
             'movie_url' => 'required',
@@ -44,7 +47,8 @@ class MovieController extends Controller
          $save_url = 'upload/movie/cover/'.$name_gen;
  
             Movie::insert([
-             'company_id' => $request->company_id,
+             'genre_id' => $request->genre_id,
+             'producer_id' => $request->producer_id,
              'movie_title' => $request->movie_title,
              'movie_slug' => strtolower(str_replace('', '-', $request->movie_title)),
              'movie_url' => $request->movie_url,
@@ -107,7 +111,9 @@ class MovieController extends Controller
     public function EditMovie($id){
         $editMovie = Movie::findOrFail($id);
         $movieData = Movie::latest()->get();
-        return view('backend.movie.edit_movie', compact('editMovie', 'movieData'));
+        $genre = Genre::latest()->get();
+        $producer = Producer::latest()->get();
+        return view('backend.movie.edit_movie', compact('editMovie', 'movieData', 'genre', 'producer'));
     }
     // Update Movie
     public function UpdateMovie(Request $request){
@@ -131,7 +137,8 @@ class MovieController extends Controller
             $save_url = 'upload/movie/cover/'.$name_gen;
 
             Movie::findOrFail($pid)->update([
-                'company_id' => $request->company_id,
+                'genre_id' => $request->genre_id,
+                'producer_id' => $request->producer_id,
                 'movie_title' => $request->movie_title,
                 'movie_slug' => strtolower(str_replace('', '-', $request->movie_title)),
                 'movie_url' => $request->movie_url,
@@ -146,7 +153,8 @@ class MovieController extends Controller
         }
         else{
             Movie::findOrFail($pid)->update([
-                'company_id' => $request->company_id,
+                'genre_id' => $request->genre_id,
+                'producer_id' => $request->producer_id,
                 'movie_title' => $request->movie_title,
                 'movie_slug' => strtolower(str_replace('', '-', $request->movie_title)),
                 'movie_url' => $request->movie_url,

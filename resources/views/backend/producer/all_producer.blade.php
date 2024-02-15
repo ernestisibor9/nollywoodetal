@@ -16,7 +16,6 @@
                     <tr>
                         <th>S/N</th>
                         <th>Producer Name</th>
-                        <th>Movie</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -25,7 +24,7 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->producer_name }}</td>
-                            <td>{{ $item->movie->movie_title }}</td>
+                            {{-- <td>{{ $item->movie->movie_title }}</td> --}}
                             <td>
                                 <a href="{{ route('edit.producer', $item->id) }}" title="Edit" class="btn btn-primary">Edit</a>
                                 <button href="{{ route('delete.producer', $item->id) }}" title="Delete" class="btn btn-danger" id="delete">Delete</button>

@@ -56,17 +56,37 @@
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
 									</div>
+									@php
+										$genre = App\Models\Genre::latest()->get();
+									@endphp
                                     <div class="col-md-6 form-group">
-										<label for="input2" class="form-label">Company <span style="color: red;">*</span></label>
-										<select id="input7" class="form-select @error('company')is-invalid @enderror" name="company_id">
-											<option selected="" disabled>Select Company</option>
-											<option value="1">MTN</option>
+										<label for="input2" class="form-label">Genre <span style="color: red;">*</span></label>
+										<select id="input7" class="form-select @error('genre_id')is-invalid @enderror" name="genre_id">
+											<option selected="" disabled>Select Genre</option>
+											@foreach ($genre as $item)
+												<option value="{{$item->id}}">{{$item->genre}}</option>
+											@endforeach
 										</select>
-                                        @error('company')
+                                        @error('genre_id')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
 									</div>
-									<div class="col-md-6 form-group">
+									@php
+										$producer = App\Models\Producer::latest()->get();
+									@endphp
+                                    <div class="col-md-6 form-group">
+										<label for="input2" class="form-label">Producer <span style="color: red;">*</span></label>
+										<select id="input7" class="form-select @error('producer_id')is-invalid @enderror" name="producer_id">
+											<option selected="" disabled>Select Producer</option>
+											@foreach ($producer as $item)
+												<option value="{{$item->id}}">{{$item->producer_name}}</option>
+											@endforeach
+										</select>
+                                        @error('producer_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+									</div>
+									<div class="col-md-12 form-group">
 										<label for="input2" class="form-label">Movie Cover <span style="color: red;">*</span></label>
 										<input type="file" name="movie_cover" class="form-control @error('movie_cover')is-invalid @enderror" id="input1" onChange="mainThamUrl(this)">
 										<div class="mt-2"></div>

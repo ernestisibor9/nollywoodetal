@@ -11,7 +11,7 @@ class Producer extends Model
 
     protected $guarded = [];
 
-    public function movie(){
-        return $this->belongsTo(Movie::class, 'movie_id', 'id');
-    }
+    // public function movie(){
+    //     return $this->belongsTo(Movie::class, 'movie_id', 'id');
+    // }
 }

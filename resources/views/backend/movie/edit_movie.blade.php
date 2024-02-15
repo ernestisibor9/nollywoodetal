@@ -46,10 +46,21 @@
 										</select>
 									</div>
                                     <div class="col-md-6 form-group">
-										<label for="input2" class="form-label">Company </label>
-										<select id="input7" class="form-select" name="company_id">
-											{{-- <option selected="" disabled>Select Company</option> --}}
-											<option value="1">MTN</option>
+										<label for="input2" class="form-label">Genre </label>
+										<select id="input7" class="form-select" name="genre_id">
+											@foreach ($movieData as $item)
+												<option value="{{$item->genre_id}}" {{$item->genre_id == $editMovie->genre_id ? 'selected' : ''}}>{{ $item->genre->genre}}</option>
+											@endforeach
+											
+										</select>
+									</div>
+									<div class="col-md-6 form-group">
+										<label for="input2" class="form-label">Genre </label>
+										<select id="input7" class="form-select" name="producer_id">
+											@foreach ($movieData as $item)
+												<option value="{{$item->producer_id}}" {{$item->producer_id == $editMovie->producer_id ? 'selected' : ''}}>{{ $item->producer->producer_name}}</option>
+											@endforeach
+											
 										</select>
 									</div>
 									<div class="col-md-6 form-group">

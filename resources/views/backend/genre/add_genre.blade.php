@@ -25,7 +25,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
 									</div>
-									<div class="col-md-12 form-group">
+									{{-- <div class="col-md-12 form-group">
 										<label for="input2" class="form-label">Movies <span style="color: red;">*</span></label>
 										<select id="input7" class="form-select @error('movie_id')is-invalid @enderror" name="movie_id">
 											<option selected="" disabled>Select Movie</option>
@@ -36,7 +36,7 @@
                                         @error('movie_id')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror
-									</div>
+									</div> --}}
 									<div class="col-md-12">
 										<div class="d-md-flex d-grid align-items-center gap-3">
 											<button type="submit" class="btn btn-primary px-4">Submit</button>
