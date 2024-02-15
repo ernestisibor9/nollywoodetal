@@ -10,9 +10,11 @@ use App\Http\Controllers\Backend\ProducerController;
 use App\Http\Controllers\Backend\WritterController;
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\MovieController as FrontendMovieController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +51,13 @@ Route::get('/all/blog', [BlogController::class, 'AllBlog'])->name('all.blog');
 
 // Contact Route
 Route::get('/contact/us', [ContactController::class, 'Contact'])->name('contact.us');
+
+// Contact Message Route
+Route::post('/store/message', [ContactController::class, 'StoreMessage'])->name('store.message');
+
+// Movie Details Route
+Route::get('/movie/details/{id}', [FrontendMovieController::class, 'MovieDetails'])->name('movie.details');
+
 
 
 Route::get('/dashboard', function () {
@@ -138,3 +147,5 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // Reply Route
     Route::post('/reply/message', [CommentController::class,'ReplyMessage'])->name('reply.message');
 });
+
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class);

@@ -2,9 +2,9 @@
 
 @section('admin')
 
-{{-- @section('title')
-	Felicity Properties - Add Property
-@endsection --}}
+@section('title')
+	Nollywoodetal - Edit Producer
+@endsection
 
 <div class="page-wrapper">
 		<div class="page-content">
@@ -22,16 +22,6 @@
 										<label for="input1" class="form-label">Producer Name</label>
 										<input type="text" name="producer_name" class="form-control" id="input1" placeholder="Movie title" value="{{$editProducer->producer_name}}">
 									</div>
-									{{-- <div class="col-md-12 form-group">
-										<label for="input2" class="form-label">Movies </label>
-										<select id="input7" class="form-select" name="movie_id">
-											<option value="{{$editProducer->movie_id}}" {{$editProducer->movie_id ? 'selected': ''}}>{{$editProducer->movie->movie_title}}</option>
-											
-                                            @foreach ($movies as $movie)
-                                                <option value="{{$movie->id}}">{{$movie->movie_title}}</option>
-                                            @endforeach
-										</select>
-									</div> --}}
 									<div class="col-md-12">
 										<div class="d-md-flex d-grid align-items-center gap-3">
 											<button type="submit" class="btn btn-primary px-4">Update</button>

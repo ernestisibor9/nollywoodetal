@@ -3,7 +3,7 @@
 @section('admin')
 
 @section('title')
-	Felicity Properties - Admin Profile
+	Nollywoodetal - Admin Profile
 @endsection
 
 <div class="page-wrapper">

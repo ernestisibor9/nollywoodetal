@@ -24,7 +24,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title text-center">Login</h5>
-            <form action="#" method="post" action="{{ route('login') }}">
+            <form  method="post" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group">
                     <label for="email">Email address</label>

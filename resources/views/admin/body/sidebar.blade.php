@@ -109,14 +109,28 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-label">UI Elements</li>
-        <li>
-            <a href="widgets.html">
-                <div class="parent-icon"><i class='bx bx-cookie'></i>
-                </div>
-                <div class="menu-title">Widgets</div>
-            </a>
-        </li>
+        <li class="menu-label">PROFILE</li>
+                <li>
+					<a href="{{ route('admin.profile') }}">
+						<div class="parent-icon"><i class="fadeIn animated bx bx-user-circle"></i>
+						</div>
+						<div class="menu-title">Profile</div>
+					</a>
+				</li>
+				<li>
+					<a href="{{ route('admin.change.password') }}">
+						<div class="parent-icon"><i class="fadeIn animated bx bx-key"></i>
+						</div>
+						<div class="menu-title">Change Password</div>
+					</a>
+				</li>
+				<li>
+					<a href="{{ route('admin.logout') }}">
+						<div class="parent-icon"><i class="fadeIn animated bx bx-log-out-circle"></i>
+						</div>
+						<div class="menu-title">Logout</div>
+					</a>
+				</li>
     </ul>
     <!--end navigation-->
 </div>

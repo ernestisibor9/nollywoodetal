@@ -2,6 +2,10 @@
 
 @section('main')
 
+@section('title')
+	Nollywoodetal - Blog Dtails
+@endsection
+
 @php
     $movies = App\Models\Movie::latest()->get();
     $posts = App\Models\Post::latest()->get();

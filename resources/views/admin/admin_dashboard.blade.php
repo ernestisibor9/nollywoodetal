@@ -28,7 +28,7 @@
 	<link rel="stylesheet" href="{{asset('backend/assets/css/header-colors.css')}}" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
-	<title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+	<title>@yield('title')</title>
 	<script src="https://cdn.tiny.cloud/1/bs6au1qu048pnog0s5m4f5jbdfqhbl6bx2k4cz9vnkhwhl25/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 	<script>
 		tinymce.init({

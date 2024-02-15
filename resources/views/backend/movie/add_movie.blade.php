@@ -2,9 +2,9 @@
 
 @section('admin')
 
-{{-- @section('title')
-	Felicity Properties - Add Property
-@endsection --}}
+@section('title')
+	Nollywoodetal - Add Movie
+@endsection
 
 <div class="page-wrapper">
 		<div class="page-content">

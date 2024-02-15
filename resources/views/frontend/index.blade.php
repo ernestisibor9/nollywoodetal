@@ -2,6 +2,10 @@
 
 @section('main')
 
+@section('title')
+	Nollywoodetal - Home
+@endsection
+
 @php
     $latestMovie = App\Models\Movie::latest()->limit(3)->get();
     $featuredMovie = App\Models\Movie::where('status', '1')->latest()->limit(3)->get();
@@ -24,13 +28,13 @@
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
                 <div class="featured-box">
                     <figure class="movies">
-                        <a href="http://127.0.0.1:8000/#"><img class="img-fluid" src="{{asset($item->movie_cover)}}" alt=""></a>
+                        <a href="{{route('movie.details', $item->id)}}"><img class="img-fluid" src="{{asset($item->movie_cover)}}" alt=""></a>
                     </figure>
                     <div class="feature-content">
                         <div class="product">
                             <h4>{{$item->movie_title}}</h4>
                         </div>
-                        <a href="http://127.0.0.1:8000/webpage/movie-page" class="btn btn-success">Readmore</a>
+                        <a href="{{route('movie.details', $item->id)}}" class= 'btn btn-success'>Readmore</a>
                     </div>
                 </div>
             </div> 
@@ -99,13 +103,13 @@
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
                 <div class="featured-box">
                     <figure class="movies">
-                        <a href="http://127.0.0.1:8000/#"><img class="img-fluid" src="{{asset($item->movie_cover)}}" alt=""></a>
+                        <a href="{{route('movie.details', $item->id)}}"><img class="img-fluid" src="{{asset($item->movie_cover)}}" alt=""></a>
                     </figure>
                     <div class="feature-content">
                         <div class="product">
                             <h4>{{$item->movie_title}}</h4>
                         </div>
-                        <a href="http://127.0.0.1:8000/webpage/movie-page" class="btn btn-success">Readmore</a>
+                        <a href="{{route('movie.details', $item->id)}}" class="btn btn-success">Readmore</a>
                     </div>
                 </div>
             </div> 
@@ -167,20 +171,20 @@
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
                 <div class="featured-box">
                     <figure>
-                        <a href="http://127.0.0.1:8000/#"><img class="img-fluid" src="{{asset($item->post_image)}}" alt=""></a>
+                        <a href="{{url('blog/details/'.$item->post_slug)}}"><img class="img-fluid" src="{{asset($item->post_image)}}" alt=""></a>
                     </figure>
                     <div class="feature-content">
                         <div class="product">
                             <h4>{{$item->post_title}}</h4>
                             <ul class="address">
                                 <li>
-                                    <a href="http://127.0.0.1:8000/#">
+                                    <a href="{{url('blog/details/'.$item->post_slug)}}">
                                         <i class="lni-alarm-clock"></i>
                                         {{$item->created_at->format('M d Y')}}
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://127.0.0.1:8000/#"><i class="lni-user"></i>{{$item->author}}</a>
+                                    <a href="{{url('blog/details/'.$item->post_slug)}}"><i class="lni-user"></i>{{$item->author}}</a>
                                 </li>
 
                             </ul>
@@ -214,13 +218,38 @@
   
   
       <!-- Cta Section Start -->
-      <section class="cta section-padding">
+      {{-- <section class="cta section-padding">
         <div class="container">
           <div class="row justify-content-center">
             <h4 style="text-align: center;">Partners</h4>
           </div>
         </div>
-      </section>
+      </section> --}}
       <!-- Cta Section End -->
+
+      <section class="featured-lis section-padding">
+    <div class="container">
+        <div class="section-title">
+            <h2>Partners</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div id="testimonials" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+                    <div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 4440px; left: 0px; display: block; transition: all 800ms ease 0s; transform: translate3d(-1110px, 0px, 0px);"><div class="owl-item" style="width: 555px;"><div class="logo">
+                        <img src="{{asset('frontend/assets/img/partners/boi.png')}}" alt="">
+                    </div></div><div class="owl-item" style="width: 555px;"><div class="logo">
+                        <img src="{{asset('frontend/assets/img/partners/national_film_video_censors_board.png')}}" alt="">
+                    </div></div><div class="owl-item" style="width: 555px;"><div class="logo">
+                        <img src="{{asset('frontend/assets/img/partners/nbc.png')}}" alt="">
+                    </div></div><div class="owl-item" style="width: 555px;"><div class="logo">
+                        <img src="{{asset('frontend/assets/img/partners/nfc.png')}}" alt="">
+                    </div></div></div></div>
+                                     
+
+                <div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page"><span class=""></span></div><div class="owl-page active"><span class=""></span></div></div></div></div>
+            </div>
+        </div>
+    </div>
+</section>
 
 @endsection

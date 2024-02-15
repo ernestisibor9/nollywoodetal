@@ -2,9 +2,9 @@
 
 @section('admin')
 
-{{-- @section('title')
-	Felicity Properties - Reply Comment
-@endsection --}}
+@section('title')
+	Nollywoodetal - Reply Comment
+@endsection
 
 <div class="page-wrapper">
 			<div class="page-content">

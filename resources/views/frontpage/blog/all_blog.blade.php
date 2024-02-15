@@ -2,6 +2,10 @@
 
 @section('main')
 
+@section('title')
+	Nollywoodetal - All Blog
+@endsection
+
     <!-- Start Content -->
     <div id="content" class="section-padding">
       <div class="container">
