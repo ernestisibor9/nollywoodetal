@@ -78,11 +78,11 @@
                 @foreach ($comment as $item)
                 <li>
                   <div class="media">
-                    <div class="thumb-left">
+                    {{-- <div class="thumb-left">
                       <a href="#">
                         <img class="img-fluid" src="{{asset('frontend/assets/img/blog/user1.jpg')}}" alt="">
                       </a>
-                    </div>
+                    </div> --}}
                     <div class="info-body">
                       <div class="media-heading">
                         <h4 class="name">{{$item->name}}</h4>
@@ -101,11 +101,11 @@
                     @if ($rep->comment_id == $item->id)
                     <li>
                       <div class="media">
-                        <div class="thumb-left">
+                        {{-- <div class="thumb-left">
                           <a href="#">
                             <img class="img-fluid" src="{{asset('frontend/assets/img/blog/user2.jpg')}}" alt="">
                           </a>
-                        </div>
+                        </div> --}}
                         <div class="info-body">
                           <div class="media-heading">
                             {{-- <h4 class="name">{{$rep->comment->name}}</h4> --}}
