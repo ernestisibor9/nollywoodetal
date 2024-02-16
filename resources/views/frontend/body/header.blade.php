@@ -108,10 +108,10 @@
 
                 <form class="search-form" method="post" action="{{route('search.movie')}}">
                   @csrf
-                  <div class="form-group inputwithicon">
+                  <div class="form-group inputwithicon ">
                     <i class="lni-map-marker"></i>
                     <div class="select">
-                      <select name= 'country'>
+                      <select name= 'country' required class= 'form-select @error('country')is-invalid @enderror'>
                         <option value="">Select Country</option>
                         <option value="Nigeria">Nigeria</option>
                         <option value="USA">USA</option>
@@ -121,28 +121,37 @@
                         <option value="South Africa">South Africa</option>
                         <option value="England">England</option>
                         <option value="France">France</option>
+                        @error('country')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </select>
                     </div>
                   </div>
                   <div class="form-group inputwithicon">
                     <i class="lni-map-marker"></i>
                     <div class="select">
-                      <select name= 'genre_id'>
+                      <select name= 'genre_id' required class= 'form-select @error('genre_id')is-invalid @enderror'>
                         <option value="none">Select Genre</option>
                           @foreach ($genre as $item)
                               <option value = {{$item->genre}}>{{$item->genre}}</option>
                           @endforeach
+                          @error('genre_id')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </select>
                     </div>
                   </div>
                   <div class="form-group inputwithicon">
                     <i class="lni-menu"></i>
                     <div class="select">
-                      <select name = 'producer_id'>
+                      <select name = 'producer_id' required class= 'form-select @error('producer_id')is-invalid @enderror'>
                         <option value="none">Select Producer</option>
                           @foreach ($producer as $item)
                               <option value = {{$item->producer_name}}>{{$item->producer_name}}</option>
                           @endforeach
+                          @error('producer_id')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                       </select>
                     </div>
                   </div>

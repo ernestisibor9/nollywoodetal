@@ -37,7 +37,7 @@ class MovieController extends Controller
  
          // read image from file system
          $img = $manager->read($image);
-         $img = $img->resize(250, 360);
+        //  $img = $img->resize(250, 360);
  
          // save modified image in new format 
          $img->toJpeg(80)->save(base_path('public/upload/movie/cover/'.$name_gen));
@@ -129,7 +129,7 @@ class MovieController extends Controller
 
             // read image from file system
             $img = $manager->read($image);
-            $img = $img->resize(250, 360);
+            // $img = $img->resize(250, 360);
 
             // save modified image in new format 
             $img->toJpeg(80)->save(base_path('public/upload/movie/cover/'.$name_gen));

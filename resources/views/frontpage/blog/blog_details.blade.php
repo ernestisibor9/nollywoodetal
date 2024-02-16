@@ -24,8 +24,7 @@
           <div class="blog-post single-post">
             <!-- Post thumb -->
             <div class="post-thumb">
-              <a href="#"><img class="img-fluid" src="{{asset($blog->post_image)}}" alt="" 
-                width="900px" height="700"></a>
+              <a href="#"><img class="img-fluid" src="{{asset($blog->post_image)}}" alt="" ></a>
               <div class="hover-wrap">
               </div>
             </div>

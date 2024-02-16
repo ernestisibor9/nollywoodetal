@@ -20,7 +20,7 @@
                         {{-- <th>Movie URL</th> --}}
                         <th>Country</th>
                         {{-- <th>Duration</th> --}}
-                        <th>Description</th>
+                        <th>Producer</th>
                         <th>Status</th>
                         <th>Published</th>
                         <th>Action</th>
@@ -35,7 +35,7 @@
                             {{-- <td>{{ $item->movie_url }}</td> --}}
                             <td>{{ $item->country }}</td>
                             {{-- <td>{{ $item->duration }}</td> --}}
-                            <td>{{ Str::substr($item->description, 0, 30) }}...</td>
+                            <td>{{$item->producer->producer_name}}</td>
                             <td>
                                 @if ( $item->status == '1')
                                             <span class="badge rounded-pill bg-success">Active</span>
