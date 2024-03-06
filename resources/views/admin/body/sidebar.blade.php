@@ -48,6 +48,19 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="fadeIn animated bx bx-user-plus"></i>
                 </div>
+                <div class="menu-title">Company</div>
+            </a>
+            <ul>
+                <li> <a href="{{route('add.company')}}"><i class='bx bx-radio-circle'></i>Add Company</a>
+                </li>
+                <li> <a href="{{route('all.company')}}"><i class='bx bx-radio-circle'></i>All Company</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="fadeIn animated bx bx-user-plus"></i>
+                </div>
                 <div class="menu-title">Cast</div>
             </a>
             <ul>

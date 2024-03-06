@@ -44,14 +44,14 @@
                                     @endif
                             </td>
                             <td>
-                                @if ( $item->published == 1)
+                                @if ( $item->published == '1')
                                             <span class="badge rounded-pill bg-success">Approved</span>
                                     @else
                                             <span class="badge rounded-pill bg-danger">Unapproved</span>
                                     @endif
                             </td>
                             <td>
-                                <a href="{{ route('change.published.status', $item->id) }}" class="btn btn-{{ $item->published ? 'dark': 'success'  }}">{{ $item->published ? 'Unapproved' : 'Approved'  }} </a>
+                                <a href="{{ route('change.published.movie', $item->id) }}" class="btn btn-{{ $item->published ? 'dark': 'success'  }}">{{ $item->published ? 'Unapproved' : 'Approved'  }} </a>
                                 <a href="{{ route('change.status', $item->id) }}" class="btn btn-{{ $item->status ? 'dark': 'success'  }}">{{ $item->status ? 'InActive' : 'Active'  }} </a>
                                 <a href="{{ route('edit.movie', $item->id) }}" title="Edit" class="btn btn-primary">Edit</a>
                                 <button href="{{ route('delete.movie', $item->id) }}" title="Delete" class="btn btn-danger" id="delete">Delete</button>

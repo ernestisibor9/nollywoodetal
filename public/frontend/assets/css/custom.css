@@ -130,6 +130,23 @@
     width: auto;
 }
 
+.movies2 .img-fluid{
+    max-height:200px !important;
+    min-height: 200px !important;
+    width: auto;
+}
+
+.movies3 .img-fluid{
+    max-height:360px !important;
+    min-height: 360px !important;
+    width: auto;
+}
+
+.movies4 .img-fluid{
+    max-height:150px !important;
+    min-height: 150px !important;
+    width: auto;
+}
 
 
 #product1 .owl-controls .owl-buttons div.owl-next,

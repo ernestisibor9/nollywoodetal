@@ -53,7 +53,7 @@ class BlogController extends Controller
     }
     // AllBlog
     public function AllBlog(){
-        $allBlog = Post::latest()->paginate(3);
+        $allBlog = Post::where('published', '1')->latest()->paginate(3);
         return view('frontpage.blog.all_blog', compact('allBlog'));
     }
 

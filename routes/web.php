@@ -3,12 +3,14 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CastController;
 use App\Http\Controllers\Backend\CommentController;
+use App\Http\Controllers\Backend\CompanyController;
 use App\Http\Controllers\Backend\GenreController;
 use App\Http\Controllers\Backend\MovieController;
 use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\ProducerController;
 use App\Http\Controllers\Backend\WritterController;
 use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\Frontend\CompanyController as FrontendCompanyController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\MovieController as FrontendMovieController;
 use App\Http\Controllers\Frontend\SearchController;
@@ -58,6 +60,28 @@ Route::post('/store/message', [ContactController::class, 'StoreMessage'])->name(
 // Movie Details Route
 Route::get('/movie/details/{id}', [FrontendMovieController::class, 'MovieDetails'])->name('movie.details');
 
+// Companies Route
+Route::get('/companies', [FrontendCompanyController::class, 'AllCompanies'])->name('company');
+
+// Company search
+Route::post('/search/company', [FrontendCompanyController::class, 'SearchCompany'])->name('search.company');
+
+// Company Details Route
+Route::get('/company/details/{id}', [FrontendCompanyController::class, 'CompanyDetails'])->name('company.details');
+
+// Film Route
+Route::get('/films', [FrontendMovieController::class, 'AllFilms'])->name('films');
+
+// Search Movie
+// Company search
+Route::post('/search/movie', [FrontendMovieController::class, 'SearchMovie'])->name('search.movie');
+
+
+// Genre filter Route
+Route::post('/genre/filter', [FrontendMovieController::class, 'GenreFilter'])->name('genre.filter');
+
+// Country filter Route
+Route::post('/country/filter', [FrontendMovieController::class, 'CountryFilter'])->name('country.filter');
 
 
 Route::get('/dashboard', function () {
@@ -86,7 +110,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/add/movie', 'AddMovie')->name('add.movie');
         Route::post('/store/movie', 'StoreMovie')->name('store.movie');
         Route::get('/all/movie', 'AllMovie')->name('all.movie');
-        Route::get('/change/published/status/{id}', 'ChangePublishStatus')->name('change.published.status');
+        Route::get('/change/published/movie/{id}', 'ChangePublishMovieStatus')->name('change.published.movie');
         Route::get('/change/status/{id}', 'ChangeStatus')->name('change.status');
         Route::get('/edit/movie/{id}', 'EditMovie')->name('edit.movie');
         Route::post('/update/movie', 'UpdateMovie')->name('update.movie');
@@ -100,6 +124,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/edit/producer/{id}', 'EditProducer')->name('edit.producer');
         Route::post('/update/producer', 'UpdateProducer')->name('update.producer');
         Route::get('/delete/producer/{id}', 'DeleteProducer')->name('delete.producer');
+    });
+    // Admin Company Route
+    Route::controller(CompanyController::class)->group(function () {
+        Route::get('/add/company', 'AddCompany')->name('add.company');
+        Route::post('/store/company', 'StoreCompany')->name('store.company');
+        Route::get('/all/company', 'AllCompany')->name('all.company');
+        Route::get('/edit/company/{id}', 'EditCompany')->name('edit.company');
+        Route::post('/update/company', 'UpdateCompany')->name('update.company');
+        Route::get('/delete/company/{id}', 'DeleteCompany')->name('delete.company');
     });
     // Admin Cast Route
     Route::controller(CastController::class)->group(function () {

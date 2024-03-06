@@ -19,7 +19,7 @@
                         <th>Title</th>
                         <th>Author</th>
                         {{-- <th>Email</th> --}}
-                        <th>Content</th>
+                        {{-- <th>Content</th> --}}
                         <th>Published</th>
                         <th>Action</th>
                     </tr>
@@ -29,10 +29,10 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td><img src="{{ asset($item->post_image) }}" alt="Movie cover" class="rounded-circle p-1 bg-primary" width="60" height="60"></td>
-                            <td>{{ $item->post_title }}</td>
+                            <td>{!! Str::substr($item->post_title, 0, 50) !!}</td>
                             <td>{{ $item->author }}</td>
                             {{-- <td>{{ $item->author_email }}</td> --}}
-                            <td>{!! Str::substr($item->post_content, 0, 40) !!}...</td>
+                            {{-- <td>{!! Str::substr($item->post_content, 0, 40) !!}...</td> --}}
                             <td>
                                 @if ( $item->published == 1)
                                             <span class="badge rounded-pill bg-success">Published</span>

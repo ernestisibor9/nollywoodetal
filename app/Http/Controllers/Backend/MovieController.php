@@ -29,22 +29,13 @@ class MovieController extends Controller
             'movie_url' => 'required',
             'movie_cover' => 'required'
         ]);
-         // create new manager instance with desired driver
-         $manager = new ImageManager(new Driver());
-
-         $image = $request->file('movie_cover');
-         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
- 
-         // read image from file system
-         $img = $manager->read($image);
-        //  $img = $img->resize(250, 360);
- 
-         // save modified image in new format 
-         $img->toJpeg(80)->save(base_path('public/upload/movie/cover/'.$name_gen));
-
+          // Without Imagick
+          $image = $request->file('movie_cover');
+          $filename = date('YmdHi') . $image->getClientOriginalName();
+          $good = $image->move(public_path('upload/movie/cover'), $filename);
  
  
-         $save_url = 'upload/movie/cover/'.$name_gen;
+         $save_url = 'upload/movie/cover/'.$filename;
  
             Movie::insert([
              'genre_id' => $request->genre_id,
@@ -71,23 +62,23 @@ class MovieController extends Controller
         $movieData = Movie::latest()->get();
         return view('backend.movie.all_movie', compact('movieData'));
     }
-    // ChangePublishStatus
-    public function ChangePublishStatus($id){
+    // ChangePublishMovieStatus
+    public function ChangePublishMovieStatus($id){
         $publishedId = Movie::findOrFail($id);
 
-            if($publishedId->published){
-                $publishedId->published = 0;
-            }
-            else{
-                $publishedId->published = 1;
-            }
-            $publishedId->save();
+        if($publishedId->published){
+            $publishedId->published = 0;
+        }
+        else{
+            $publishedId->published = 1;
+        }
+        $publishedId->save();
 
-            $notification = array(
-                'message'=> 'Published Status Changed Successfully',
-                'alert-type'=>'success'
-            );
-            return redirect()->back()->with($notification);     
+        $notification = array(
+            'message'=> 'Published Changed Successfully',
+            'alert-type'=>'success'
+        );
+        return redirect()->back()->with($notification);     
     }
     // Change Status
     public function ChangeStatus($id){
@@ -121,20 +112,12 @@ class MovieController extends Controller
         $oldImg = $request->old_img;
 
         if($request->file('movie_cover')){
-            // create new manager instance with desired driver
-            $manager = new ImageManager(new Driver());
+            // Without Imagick
+          $image = $request->file('movie_cover');
+          $filename = date('YmdHi') . $image->getClientOriginalName();
+          $image->move(public_path('upload/movie/cover'), $filename);
 
-            $image = $request->file('movie_cover');
-            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-
-            // read image from file system
-            $img = $manager->read($image);
-            // $img = $img->resize(250, 360);
-
-            // save modified image in new format 
-            $img->toJpeg(80)->save(base_path('public/upload/movie/cover/'.$name_gen));
-
-            $save_url = 'upload/movie/cover/'.$name_gen;
+            $save_url = 'upload/movie/cover/'.$filename;
 
             Movie::findOrFail($pid)->update([
                 'genre_id' => $request->genre_id,

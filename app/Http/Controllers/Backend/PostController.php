@@ -26,22 +26,13 @@ class PostController extends Controller
             'post_image' => 'required',
             'post_content' => 'required',
         ]);
-         // create new manager instance with desired driver
-         $manager = new ImageManager(new Driver());
 
-         $image = $request->file('post_image');
-         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        // Without Imagick
+        $image = $request->file('post_image');
+        $filename = date('YmdHi') . $image->getClientOriginalName();
+        $image->move(public_path('upload/post'), $filename);
  
-         // read image from file system
-         $img = $manager->read($image);
-        //  $img = $img->resize(600, 400);
- 
-         // save modified image in new format 
-         $img->toJpeg(80)->save(base_path('public/upload/post/'.$name_gen));
-
- 
- 
-         $save_url = 'upload/post/'.$name_gen;
+         $save_url = 'upload/post/'.$filename;
  
             Post::insert([
              'post_title' => $request->post_title,
@@ -92,20 +83,12 @@ class PostController extends Controller
         $oldImg = $request->old_img;
 
         if($request->file('post_image')){
-            // create new manager instance with desired driver
-            $manager = new ImageManager(new Driver());
-
+            // Without Imagick
             $image = $request->file('post_image');
-            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            $filename = date('YmdHi') . $image->getClientOriginalName();
+            $image->move(public_path('upload/post'), $filename);
 
-            // read image from file system
-            $img = $manager->read($image);
-            // $img = $img->resize(600, 400);
-
-            // save modified image in new format 
-            $img->toJpeg(80)->save(base_path('public/upload/post/'.$name_gen));
-
-            $save_url = 'upload/post/'.$name_gen;
+            $save_url = 'upload/post/'.$filename;
 
             Post::findOrFail($pid)->update([
              'post_title' => $request->post_title,

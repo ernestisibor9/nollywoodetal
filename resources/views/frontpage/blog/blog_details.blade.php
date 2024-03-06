@@ -24,7 +24,7 @@
           <div class="blog-post single-post">
             <!-- Post thumb -->
             <div class="post-thumb">
-              <a href="#"><img class="img-fluid" src="{{asset($blog->post_image)}}" alt="" ></a>
+              <a href="#"><img class="movie3 img-fluid" src="{{asset($blog->post_image)}}" alt="" ></a>
               <div class="hover-wrap">
               </div>
             </div>
@@ -36,7 +36,7 @@
 
             <!-- Post Content -->
             <div class="post-content">                   
-              <h2 class="post-title"><a href="single-post.html">Eum Iriure Dolor Duis Autem</a></h2>
+              <h2 class="post-title"><a href="single-post.html">{{$blog->post_title}}</a></h2>
               <div class="meta">
                 <span class="meta-part"><a href="#"><i class="lni-user"></i>{{$blog->author}}</a></span>
                 <span class="meta-part"><a href="#"><i class="lni-alarm-clock"></i> {{$blog->created_at->format('M d Y')}}</a></span>
@@ -46,9 +46,7 @@
                 }} Comments</a></span>                  
               </div>
               <div class="entry-summary">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi qui fuga quam hic possimus nihil iure assumenda odio at reprehenderit magni debitis cupiditate quidem nobis <strong>Helvetica</strong> repellendus doloribus, rerum aut in! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias repellat autem accusantium cupiditate animi consectetur. Beatae quia labore, sunt fugit accusantium. Deleniti excepturi ducimus error, ipsam voluptates eius sint odio!</p>
-                <p>Lorem ipsum dolor sit amet, <strong>consectetuer</strong> adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. <strong>Investigationes</strong> demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram</p>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                <p>{!! $blog->post_content !!}</p>
               </div>
               <div class="share-items">
                 <ul class="list-inline">

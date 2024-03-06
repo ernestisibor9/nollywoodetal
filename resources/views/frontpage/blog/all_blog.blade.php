@@ -18,7 +18,7 @@
               @foreach ($allBlog as $item)
                 
               <!-- Post thumb -->
-              <div class="post-thumb">
+              <div class="post-thumb movies3">
                 <a href="{{url('blog/details/'.$item->post_slug)}}"><img class="img-fluid" src="{{asset($item->post_image)}}" alt=""></a>
                 <div class="hover-wrap"></div>
               </div>

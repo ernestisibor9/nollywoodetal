@@ -25,13 +25,18 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Film Movie
+              <a class="nav-link" href="{{route('films')}}">
+                Films
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Film Companies
+              <a class="nav-link" href="https://filmfreeway.com/AfricanIndigenousLanguageFilmFestival" target= '_blank'>
+                Film Festival
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('company')}}">
+                Companies
               </a>
             </li>
             <li class="nav-item">
@@ -42,6 +47,11 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('contact.us')}}">
                 Contact
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://www.coalcityfilmfestival.com/registration" target='_blank'>
+                Create an Account
               </a>
             </li>
           </ul>
@@ -62,13 +72,18 @@
               </a>
             </li>
             <li>
-              <a class="nav-link" href="#">
-                Film Movie
+              <a class="nav-link" href="{{route('films')}}">
+                Films
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://filmfreeway.com/AfricanIndigenousLanguageFilmFestival" target= '_blank'>
+                Film Festival
               </a>
             </li>
             <li>
-              <a class="nav-link" href="#">
-                Film Companies
+              <a class="nav-link" href="{{route('company')}}">
+                Companies
               </a>
             </li>
             <li>
@@ -79,6 +94,11 @@
             <li>
               <a class="nav-link" href="{{route('contact.us')}}">
                 Contact
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://www.coalcityfilmfestival.com/registration" target='_blank'>
+                Create an Account
               </a>
             </li>
       </ul>
@@ -96,7 +116,7 @@
           <div class="contents">
             <h1 class="head-title">NOLLYWOOD ET AL</h1>
             <p>Film Mart * Company * News Blog</p>
-            <p>Search For Movie</p>
+            {{-- <p>Search For Movie</p>
             <div class="search-bar">
               <div class="search-inner">
 
@@ -111,7 +131,7 @@
                   <div class="form-group inputwithicon ">
                     <i class="lni-map-marker"></i>
                     <div class="select">
-                      <select name= 'country' required class= 'form-select @error('country')is-invalid @enderror'>
+                      <select name= 'country' required class= 'form-select p-2 @error('country')is-invalid @enderror'>
                         <option value="">Select Country</option>
                         <option value="Nigeria">Nigeria</option>
                         <option value="USA">USA</option>
@@ -130,7 +150,7 @@
                   <div class="form-group inputwithicon">
                     <i class="lni-map-marker"></i>
                     <div class="select">
-                      <select name= 'genre_id' required class= 'form-select @error('genre_id')is-invalid @enderror'>
+                      <select name= 'genre_id' required class= 'form-select p-2 @error('genre_id')is-invalid @enderror'>
                         <option value="none">Select Genre</option>
                           @foreach ($genre as $item)
                               <option value = {{$item->genre}}>{{$item->genre}}</option>
@@ -144,7 +164,7 @@
                   <div class="form-group inputwithicon">
                     <i class="lni-menu"></i>
                     <div class="select">
-                      <select name = 'producer_id' required class= 'form-select @error('producer_id')is-invalid @enderror'>
+                      <select name = 'producer_id' required class= 'form-select p-2 @error('producer_id')is-invalid @enderror'>
                         <option value="none">Select Producer</option>
                           @foreach ($producer as $item)
                               <option value = {{$item->producer_name}}>{{$item->producer_name}}</option>
@@ -158,7 +178,7 @@
                   <button class="btn btn-common" type="submit"><i class="lni-search"></i> Search Now</button>
                 </form>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>

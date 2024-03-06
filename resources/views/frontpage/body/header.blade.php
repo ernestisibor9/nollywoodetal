@@ -3,7 +3,12 @@
     justify-content: center !important;
     text-align: center !important;
   }
+
 </style>
+
+@php
+    $route = Route::current()->getName();
+@endphp
 
 <header id="header-wrap">
     <!-- Navbar Start -->
@@ -21,7 +26,7 @@
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="{{url('/')}}" >
                 Home
               </a>
@@ -31,24 +36,34 @@
                 About
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Film Movie
+            <li class="nav-item {{ ($route == 'films') ? 'active':'' }}">
+              <a class="nav-link" href="{{route('films')}}">
+                Films
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Film Companies
+              <a class="nav-link" href="https://filmfreeway.com/AfricanIndigenousLanguageFilmFestival" target= '_blank'>
+                Film Festival
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ ($route == 'company') ? 'active':'' }} ">
+              <a class="nav-link" href="{{route('company')}}">
+                Companies
+              </a>
+            </li>
+            <li class="nav-item {{ ($route == 'all.blog') ? 'active':'' }} ">
               <a class="nav-link" href="{{route('all.blog')}}">
                 Blog
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ ($route == 'contact.us') ? 'active':'' }}">
               <a class="nav-link" href="{{route('contact.us')}}">
                 Contact
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://www.coalcityfilmfestival.com/registration" target='_blank'>
+                Create an Account
               </a>
             </li>
           </ul>
@@ -68,14 +83,19 @@
                 About
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Film Movie
+            <li class="nav-item {{ ($route == 'films') ? 'active':'' }}">
+              <a class="nav-link" href="{{route('films')}}">
+                Films
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Film Companies
+              <a class="nav-link" href="https://filmfreeway.com/AfricanIndigenousLanguageFilmFestival" target= '_blank'>
+                Film Festival
+              </a>
+            </li>
+            <li class="nav-item {{ ($route == 'company') ? 'active':'' }} ">
+              <a class="nav-link" href="{{route('company')}}">
+                Companies
               </a>
             </li>
             <li class="nav-item">
@@ -86,6 +106,11 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('contact.us')}}">
                 Contact
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://www.coalcityfilmfestival.com/registration" target='_blank'>
+                Create an Account
               </a>
             </li>
       </ul>
